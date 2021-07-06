@@ -1,5 +1,4 @@
 
-import pickle
 from threading import Thread, Event
 import jsonpickle
 
