@@ -1,9 +1,9 @@
 from flask import Flask, request
-from ServerDatabase import ServerDatabase, ServerDatabaseException
-from Message import Message
-from PublicInfo import PublicInfo
+from server.ServerDatabase import ServerDatabase, ServerDatabaseException
+from resources.Message import Message
+from resources.PublicInfo import PublicInfo
 import jsonpickle
-from StorageUtility import StorageUtility
+from resources.StorageUtility import StorageUtility
 
 
 class ServerMain:

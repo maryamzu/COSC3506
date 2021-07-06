@@ -1,7 +1,6 @@
 import requests
 import jsonpickle
-from UserInfo import UserInfo
-from Message import Message
+from resources.Message import Message
 
 
 class ServerConnection:

@@ -1,6 +1,6 @@
-from UserInfo import UserInfo
-from Message import Message
-from PublicInfo import PublicInfo
+from resources.UserInfo import UserInfo
+from resources.Message import Message
+from resources.PublicInfo import PublicInfo
 
 
 class ClientDatabase:
