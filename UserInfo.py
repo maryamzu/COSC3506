@@ -1,5 +1,5 @@
-import Message
-import PublicInfo
+from Message import Message
+from PublicInfo import PublicInfo
 
 
 class UserInfo:

@@ -1,6 +1,6 @@
 import requests
 import jsonpickle
-import Message
+from Message import Message
 
 
 class ServerConnection:

@@ -1,9 +1,9 @@
-import StorageUtility
+from StorageUtility import StorageUtility
 from ClientDatabase import ClientDatabase
 from ServerConnection import ServerConnection
-import Message
-import PublicInfo
-import UserInfo
+from Message import Message
+from PublicInfo import PublicInfo
+from UserInfo import UserInfo
 from threading import Thread, Event
 
 

@@ -1,6 +1,6 @@
-import UserInfo
-import Message
-import PublicInfo
+from UserInfo import UserInfo
+from Message import Message
+from PublicInfo import PublicInfo
 
 
 class ClientDatabase:
