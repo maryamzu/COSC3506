@@ -19,7 +19,7 @@ class ClientNode:
         self.__server_connection: ServerConnection = None
         self.__on_new_messages_received = lambda messages: None
         self.__on_new_server_public_info = lambda public_info: None
-        self.__storage_utility = StorageUtility(f'{username}_client_database.txt')
+        self.__storage_utility = StorageUtility(f'./database/{username}_client_database.txt')
         self.__is_online = False
         self.__autorefresh_on = False
 
