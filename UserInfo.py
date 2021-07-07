@@ -1,6 +1,5 @@
-
-from resources.Message import Message
-from resources.PublicInfo import PublicInfo
+import Message
+import PublicInfo
 
 
 class UserInfo:

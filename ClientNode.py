@@ -1,9 +1,9 @@
-from resources.StorageUtility import StorageUtility
-from client.ClientDatabase import ClientDatabase
-from client.ServerConnection import ServerConnection
-from resources.Message import Message
-from resources.PublicInfo import PublicInfo
-from resources.UserInfo import UserInfo
+import StorageUtility
+from ClientDatabase import ClientDatabase
+from ServerConnection import ServerConnection
+import Message
+import PublicInfo
+import UserInfo
 from threading import Thread, Event
 
 
