@@ -1,0 +1,1 @@
+This directory used by ServerMain and by ClientNode to save the database information
