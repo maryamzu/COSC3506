@@ -1,9 +1,9 @@
 from flask import Flask, request
 from ServerDatabase import ServerDatabase, ServerDatabaseException
-import Message
-import PublicInfo
+from Message import Message
+from PublicInfo import PublicInfo
 import jsonpickle
-import StorageUtility
+from StorageUtility import StorageUtility
 
 
 class ServerMain:
@@ -15,13 +15,13 @@ class ServerMain:
     def main(cls):
         cls.setup_database()
         cls.route_functions()
-        cls.app.run()
+        cls.app.run("0.0.0.0")
 
     @classmethod
     def setup_database(cls):
 
         # load the database (None if the file does not exist)
-        storage_utility = StorageUtility('server_database.txt')
+        storage_utility = StorageUtility('./database/server_database.txt')
 
         cls.db = storage_utility.load()
         if cls.db is None:
