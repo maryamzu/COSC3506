@@ -90,6 +90,8 @@ class ClientNode:
         # stop autorefreshing()
         self.stop_autorefresh()
 
+        return True
+
     def set_on_new_messages_received(self, target):
         """sets the specified target function to be performed on a list of new messages whenever
         new messages are received. The target function should accept a list of Message objects as an argument"""
