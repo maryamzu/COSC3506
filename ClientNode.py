@@ -76,8 +76,7 @@ class ClientNode:
         to false"""
 
         # change public info to offline
-        public_info = self.get_user_public_info()
-        public_info.set_status_tag(PublicInfo.OFFLINE)
+        public_info = PublicInfo(status_tag=PublicInfo.OFFLINE)
         self.set_user_public_info(public_info)
 
         # change online flag to false
@@ -137,12 +136,7 @@ class ClientNode:
     def delete_message(self, m: Message):
         """Deletes the specified message from the client database"""
         self.__assert_online()
-
-        try:
-            self.__database.delete_message(m)
-        except ValueError:
-            return False
-
+        self.__database.delete_message(m)
         return True
 
     def get_user_public_info(self):
