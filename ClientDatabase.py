@@ -21,12 +21,10 @@ class ClientDatabase:
     def delete_message(self, m: Message):
         """Deletes this message from the appropriate mailbox. If it does not exist in the mailbox,
         a ValueError is raised."""
-        if m.get_sender() == self.__personal_info.get_username():
-            self.get_outbox().remove(m)
-        elif self.__personal_info.get_username() in m.get_recipients():
+        if m in self.get_inbox():
             self.get_inbox().remove(m)
-        else:
-            raise ValueError('Either sender or receiver did not match this user record')
+        if m in self.get_outbox():
+            self.get_outbox().remove(m)
 
     def get_inbox(self) -> list[Message]:
         """Returns the inbox for this user's database"""
