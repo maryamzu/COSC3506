@@ -7,8 +7,8 @@ class Message:
 
     def __init__(self, sender: str = None,
                  recipients: list[str] = None,
-                 subject: str = None,
-                 content: str = None,):
+                 subject: str = 'no subject',
+                 content: str = 'no content'):
         self.__sender = sender
         self.__recipients = recipients
         self.__subject = subject
