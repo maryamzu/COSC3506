@@ -7,10 +7,10 @@ class MessageDisplayWindow(tk.Toplevel):
     """A simple message display window. Pass it a message object and it shows all the information.
     """
 
-    def __init__(self, message):
+    def __init__(self, parent, message):
         """Constructs window by adding the correct data fields """
 
-        super().__init__()
+        super().__init__(parent)
 
         self.title(f"Message Display")
 
