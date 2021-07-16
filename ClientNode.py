@@ -52,8 +52,8 @@ class ClientNode:
         # begin autosaving the database at the file path every 5 minutes
         self.__storage_utility.start_autosave(self.__database, timespan=300)
 
-        # begin refreshing every 30 seconds
-        self.start_autorefresh()
+        # begin refreshing every 5 seconds
+        self.start_autorefresh(timeout=5)
 
         return True
 
