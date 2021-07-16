@@ -14,11 +14,11 @@ class MessageEditorWindow(tk.Toplevel):
                         on_send_message_event = lambda message: print(message)).mainloop()
     """
 
-    def __init__(self, username, user_list, on_send_message_event=lambda message: print(message)):
+    def __init__(self, parent, username, user_list, on_send_message_event=lambda message: print(message)):
         """Constructs window by adding the correct widgets. Requires passing the username
         of the message editor and a list of users on the server"""
 
-        super().__init__()
+        super().__init__(parent)
 
         self.username = username
         self.user_list = user_list
@@ -92,4 +92,4 @@ class MessageEditorWindow(tk.Toplevel):
         content = self.txt_message.get('1.0', 'end')
         message = Message(sender=self.username, subject=subject, recipients=recipients, content=content)
         self.on_send_message_event(message)
-        messagebox.showinfo(f"Message Editor : {self.username}", "Message sent!")
+        self.destroy()
