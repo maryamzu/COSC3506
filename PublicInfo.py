@@ -16,14 +16,8 @@ class PublicInfo:
     def get_status_tag(self) -> int:
         return self.__status_tag
 
-    def set_status_tag(self, status_tag: int):
-        self.__status_tag = status_tag
-
     def get_status_text(self):
         return self.__status_text
-
-    def set_status_text(self, status_text: str) -> str:
-        self.__status_text = status_text
 
     def add_group(self, name: str, members: list[str]):
         self.__groups[name] = members

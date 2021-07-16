@@ -72,8 +72,7 @@ class ServerMain:
                 return "failure: bad request form"
 
             if db.authenticate_user(username, password):
-                public_info = db.get_user_info(username).get_public_info()
-                public_info.set_status_tag(PublicInfo.ONLINE)
+                public_info = PublicInfo(status_tag=PublicInfo.ONLINE)
                 db.set_public_info(username, public_info)
                 return 'success'
 

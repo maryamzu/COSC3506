@@ -19,7 +19,7 @@ class ServerDatabase:
 
         # create a new UserInfo object for the user, set status to online by default
         new_user_info = UserInfo(username, password)
-        new_user_info.get_public_info().set_status_tag(PublicInfo.ONLINE)
+        new_user_info.set_public_info(PublicInfo(status_tag=PublicInfo.ONLINE))
         new_user_info.get_flags()['number_of_new_messages'] = 0
 
         # create a record for this user with the UserInfo object
