@@ -93,4 +93,3 @@ class MessageEditorWindow(tk.Toplevel):
         message = Message(sender=self.username, subject=subject, recipients=recipients, content=content)
         self.on_send_message_event(message)
         messagebox.showinfo(f"Message Editor : {self.username}", "Message sent!")
-
