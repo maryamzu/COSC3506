@@ -142,9 +142,9 @@ class ServerDatabase:
         """Returns true if the password matches the recorded password for the
         specified username"""
 
-        # if the user does not exist in the server, raise an exception
+        # if the user does not exist in the server return false
         if not self.user_exists(username):
-            raise ServerDatabaseException("No record for user " + username)
+            return False
 
         return self.get_user_info(username).get_password() == password
 
