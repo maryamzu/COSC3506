@@ -21,7 +21,7 @@ class ServerMain:
     def setup_database(cls):
 
         # load the database (None if the file does not exist)
-        storage_utility = StorageUtility('./database/server_database.txt')
+        storage_utility = StorageUtility('server_database.txt')
 
         cls.db = storage_utility.load()
         if cls.db is None:

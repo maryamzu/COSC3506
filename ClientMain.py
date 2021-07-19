@@ -190,11 +190,11 @@ class ClientMain(tk.Tk):
             self.sync_server()
 
     def setup_host_address(self):
-        host_address = StorageUtility('./database/host_address.txt').load()
+        host_address = StorageUtility('host_address.txt').load()
         if host_address is None:
             host_address = simpledialog.askstring("Connect to server", "Enter server address:",\
                                             parent=self)
-            StorageUtility('./database/host_address.txt').save(host_address)
+            StorageUtility('host_address.txt').save(host_address)
         self.host_address = host_address
 
     def sync_server(self):

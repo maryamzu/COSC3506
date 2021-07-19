@@ -1,6 +1,8 @@
 
 from threading import Thread, Event
 import jsonpickle
+import os
+import os.path
 
 
 class StorageUtility:
@@ -8,12 +10,16 @@ class StorageUtility:
     def __init__(self, filename: str):
         self.__autosave_on = False
         self.__filename = filename
+        save_directory = os.path.join(os.getenv("HOME"), ".staffchat")
+        if not os.path.exists(save_directory):
+            os.mkdir(save_directory)
+        self.__filepath = os.path.join(save_directory, filename)
 
     def load(self):
         """Returns the object stored in jsonpickle format at the specified filename"""
         data = None
         try:
-            with open(self.__filename, 'r') as file:
+            with open(self.__filepath, 'r') as file:
                 text = file.read()
                 data = jsonpickle.decode(text)
         except FileNotFoundError:
@@ -25,7 +31,7 @@ class StorageUtility:
     def save(self, data):
         """Saves the specified object to the specified file in pickle format"""
         try:
-            with open(self.__filename, 'w') as file:
+            with open(self.__filepath, 'w') as file:
                 text = jsonpickle.encode(data)
                 file.write(text)
         except IOError as e:
