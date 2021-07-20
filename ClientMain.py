@@ -1,6 +1,7 @@
 from StorageUtility import StorageUtility
 from tkinter import simpledialog
 import tkinter as tk
+from tkinter import ttk
 from LoginWindow import LoginWindow
 from ClientNode import ClientNode
 from VerticalScrolledPane import VerticalScrolledPane
@@ -18,22 +19,28 @@ class ClientMain(tk.Tk):
 
     def __init__(self):
         super().__init__()
+
+        # disable resizing
+        self.resizable(False, False)
+
+        # set close protocol
         self.protocol("WM_DELETE_WINDOW", self.close_window)
 
-        #set up widgets
+        # set up widgets
         fr_left = tk.Frame(self, bd=2, relief=tk.RAISED)
         fr_left.grid(row=0, column=0, sticky='ns')
 
         tk.Label(fr_left, text="StaffChat", font=('Calibri', 20, 'bold')).grid(row=0, column=0, pady=10, sticky='w')
-        tk.Button(fr_left, text="Inbox", command=self.show_inbox).grid(row=1, column=0, pady=10, sticky='w')
-        tk.Button(fr_left, text="Outbox", command=self.show_outbox).grid(row=2, column=0, pady=10, sticky='w')
-        tk.Button(fr_left, text="Set Status", command=self.set_status).grid(row=3, column=0, pady=10, sticky='w')
-        tk.Button(fr_left, text="New Message", command=self.compose_message).grid(row=4, column=0, pady=10, sticky='w')
-        tk.Button(fr_left, text="Login", command=self.login).grid(row=5, column=0, pady=10, sticky='w')
-        tk.Button(fr_left, text="Logout", command=self.logout).grid(row=6, column=0, pady=10, sticky='w')
-        tk.Button(fr_left, text="Register", command=self.register).grid(row=7, column=0, pady=10, sticky='w')
-        tk.Button(fr_left, text="Restore", command=self.restore_server).grid(row=8, column=0, pady=10, sticky='w')
-        tk.Button(fr_left, text="Sync server", command=self.sync_server).grid(row=9, column=0, pady=10, sticky='w')
+
+        tk.Button(fr_left, text="Inbox", command=self.show_inbox).grid(row=1, column=0, pady=10, sticky='ew')
+        tk.Button(fr_left, text="Outbox", command=self.show_outbox).grid(row=2, column=0, pady=10, sticky='ew')
+        tk.Button(fr_left, text="Set Status", command=self.set_status).grid(row=3, column=0, pady=10, sticky='ew')
+        tk.Button(fr_left, text="New Message", command=self.compose_message).grid(row=4, column=0, pady=10, sticky='ew')
+        tk.Button(fr_left, text="Login", command=self.login).grid(row=5, column=0, pady=10, sticky='ew')
+        tk.Button(fr_left, text="Logout", command=self.logout).grid(row=6, column=0, pady=10, sticky='ew')
+        tk.Button(fr_left, text="Register", command=self.register).grid(row=7, column=0, pady=10, sticky='ew')
+        tk.Button(fr_left, text="Restore", command=self.restore_server).grid(row=8, column=0, pady=10, sticky='ew')
+        tk.Button(fr_left, text="Sync server", command=self.sync_server).grid(row=9, column=0, pady=10, sticky='ew')
 
         fr_middle = tk.Frame(self, bd=2, relief=tk.RAISED)
         fr_middle.grid(row=0, column=1, sticky='ns')
@@ -150,9 +157,13 @@ class ClientMain(tk.Tk):
         self.client_node.set_on_new_server_public_info(lambda public_info: self.show_user_thumbnails())
 
     def close_window(self):
-        self.logout()
-        self.destroy()
-        exit(0)
+        try:
+            self.logout()
+            self.destroy()
+        except:
+            pass
+        finally:
+            exit(0)
 
     def logout(self):
         if self.logged_in:
@@ -204,4 +215,5 @@ class ClientMain(tk.Tk):
 
 if __name__ == "__main__":
     ClientMain().mainloop()
+
 
