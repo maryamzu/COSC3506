@@ -210,6 +210,7 @@ class ClientNode:
             self.refresh()
             Event().wait(timeout)
 
+
     def restore_user_info(self):
         """Obtains the server's UserInfo object for this user and overwrites the database with this object.
         Effectively restores any messages that may have been deleted from the inbox or outbox of the user

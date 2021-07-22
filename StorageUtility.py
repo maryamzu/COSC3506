@@ -10,7 +10,8 @@ class StorageUtility:
     def __init__(self, filename: str):
         self.__autosave_on = False
         self.__filename = filename
-        save_directory = os.path.join(os.getenv("HOME"), ".staffchat")
+        home = os.path.expanduser('~')
+        save_directory = os.path.join(home, ".staffchat")
         if not os.path.exists(save_directory):
             os.mkdir(save_directory)
         self.__filepath = os.path.join(save_directory, filename)
